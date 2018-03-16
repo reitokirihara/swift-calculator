@@ -59,7 +59,9 @@ class ViewController: UIViewController {
             result = firstNumber * secondNumber;
         } else if operation == "/" {
             result = firstNumber / secondNumber;
-        } else{
+        } else if operation == "^"{
+            result = pow(firstNumber, secondNumber);
+        } else {
             if !isRad{
                 secondNumber = secondNumber/57.2958;
             }
@@ -91,6 +93,17 @@ class ViewController: UIViewController {
     @IBAction func changeToDeg(_ sender: Any) {
         modeDisplay.text = "Deg";
         isRad = false;
+    }
+    
+    @IBAction func togglePlusMinus(_ sender: Any) {
+        var toggledNumber = -(Float(calculatorDisplay.text!)!);
+        calculatorDisplay.text = "\(toggledNumber)";
+    }
+    
+    
+    @IBAction func percentConversion(_ sender: Any) {
+        var changedNumber = Float(calculatorDisplay.text!)! * 0.01;
+        calculatorDisplay.text = "\(changedNumber)";
     }
 }
 
